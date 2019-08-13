@@ -1,1 +1,23 @@
 version: "2.1"
+
+services:
+  # Behat
+  behat:
+    hostname: behat
+    image: docksal/behat
+    volumes:
+      - ${PROJECT_ROOT}/tests/behat:/src
+    # Keep the container running
+    entrypoint: "top -b"
+
+  # Selenium
+  browser:
+    hostname: browser
+    # Pick/uncomment one
+    image: selenium/standalone-chrome-debug
+    #image: selenium/standalone-firefox
+    ports:
+      - "0:5900"
+    dns:
+      - ${DOCKSAL_DNS1}
+      - ${DOCKSAL_DNS2}
