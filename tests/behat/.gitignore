@@ -1,7 +1,9 @@
+# Assets directories.
 screenshots
 !screenshots/.gitkeep
-
 html_report
 !html_report/.gitkeep
 
+# Composer directories.
 vendor
+bin

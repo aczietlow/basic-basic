@@ -1,5 +1,5 @@
 # Local overrides to the default profile
-default:
+docker:
   suites:
     default:
       contexts:
@@ -10,9 +10,9 @@ default:
         - FeatureContext:
             parameters:
               screenshot_dir: '%paths.base%/screenshots'
-
   extensions:
     Behat\MinkExtension:
+      base_url: http://web
       goutte: ~
 #      selenium2: ~
       # Use goutte (basic PHP browser, super fast) as the default driver.
@@ -28,6 +28,12 @@ default:
         capabilities: { "browser": "chrome", "version": "*" }
 
     Drupal\DrupalExtension:
+#      drupal:
+#        # Site docroot inside Docksal.
+#        drupal_root: /var/www/docroot
+#      drush:
+#        # Site docroot inside Docksal.
+#        root: /var/www/docroot
       # Map template regions.
       region_map:
         header: "#header"
@@ -54,8 +60,5 @@ default:
         local:
           screenshot_directory: "%paths.base%/screenshots/"
 
-docker:
-  extensions:
-    Behat\MinkExtension:
-      goutte: ~
-      selenium2: ~
+# Docker profile.
+# For use inside the CLI container in Docksal.

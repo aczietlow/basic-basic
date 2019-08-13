@@ -17,7 +17,7 @@ services:
     image: selenium/standalone-chrome-debug
     #image: selenium/standalone-firefox
     ports:
-      - "0:5900"
+      - "5900:5900"
     dns:
       - ${DOCKSAL_DNS1}
       - ${DOCKSAL_DNS2}

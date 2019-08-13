@@ -1,0 +1,1 @@
+https://github.com/aczietlow/behat-d8/blob/master/features/behat-training.md
