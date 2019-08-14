@@ -1,5 +1,5 @@
 # Local overrides to the default profile
-docker:
+default:
   suites:
     default:
       contexts:
@@ -10,11 +10,11 @@ docker:
         - FeatureContext:
             parameters:
               screenshot_dir: '%paths.base%/screenshots'
+
   extensions:
     Behat\MinkExtension:
-      base_url: http://web
+      base_url: "http://web"
       goutte: ~
-#      selenium2: ~
       # Use goutte (basic PHP browser, super fast) as the default driver.
       default_session: goutte
       # For real browser testing and tests requiring JS use selenium2 driver.
@@ -25,15 +25,15 @@ docker:
       browser_name: chrome
       selenium2:
         wd_host: http://browser:4444/wd/hub
-        capabilities: { "browser": "chrome", "version": "*" }
+        capabilities:
+          browser: "chrome"
+          version: "*"
+          marionette: true
+          extra_capabilities:
+            chromeOptions:
+              w3c: false
 
     Drupal\DrupalExtension:
-#      drupal:
-#        # Site docroot inside Docksal.
-#        drupal_root: /var/www/docroot
-#      drush:
-#        # Site docroot inside Docksal.
-#        root: /var/www/docroot
       # Map template regions.
       region_map:
         header: "#header"
@@ -60,5 +60,8 @@ docker:
         local:
           screenshot_directory: "%paths.base%/screenshots/"
 
-# Docker profile.
-# For use inside the CLI container in Docksal.
+docker:
+  extensions:
+    Behat\MinkExtension:
+      goutte: ~
+      selenium2: ~
