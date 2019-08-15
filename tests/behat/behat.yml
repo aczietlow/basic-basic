@@ -9,8 +9,12 @@ default:
         - Drupal\DrupalExtension\Context\DrushContext
         - FeatureContext:
             parameters:
-              screenshot_dir: '%paths.base%/screenshots'
+              screenshot_dir: "%paths.base%/screenshots"
 
+    # The twig formatter.
+  formatters:
+    html:
+      output_path: "%paths.base%/html_report"
   extensions:
     Behat\MinkExtension:
       base_url: "http://web"
@@ -31,7 +35,9 @@ default:
           marionette: true
           extra_capabilities:
             chromeOptions:
+              args: ['--headless', '--disable-gpu']
               w3c: false
+
 
     Drupal\DrupalExtension:
       # Map template regions.
@@ -65,3 +71,10 @@ docker:
     Behat\MinkExtension:
       goutte: ~
       selenium2: ~
+    Drupal\DrupalExtension:
+      drupal:
+        # Site docroot inside Docksal.
+        drupal_root: /var/www/docroot
+      drush:
+        # Site docroot inside Docksal.
+        root: /var/www/docroot
