@@ -8,6 +8,7 @@ use Behat\Gherkin\Node\TableNode;
  */
 class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext {
   protected $screenshot_dir = '/tmp';
+
   /**
    * Initializes context.
    *
@@ -36,6 +37,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
       }
     }
   }
+
   /**
    * @Then /^I should see "([^"]*)" in the code$/
    */
@@ -45,6 +47,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
     }
     return $this->assertSession()->statusCodeEquals($code);
   }
+
   /**
    * Filling the field with parameter using jQuery . Some forms can't be filled using other functions.
    *
@@ -59,6 +62,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
       throw new Exception("Value doesn't match");
     }
   }
+
   /**
    * @Then /^I execute jQuery click on selector "([^"]*)"$/
    */
