@@ -1,4 +1,4 @@
-@api @demo
+@api @javascript @demo
 Feature: Contact form
   In order to send a message to the site administrators
   As a visitor

@@ -517,4 +517,20 @@ JS;
   {
     return str_replace('\\"', '"', $argument);
   }
+
+  /**
+   * Asserts that a given module exists and is enabled.
+   *
+   */
+  public function assertModuleExists($module)
+  {
+    // @Given the :module module is installed
+    $moduleHandler = \Drupal::service('module_handler');
+    if ($moduleHandler->moduleExists($module)){
+      return TRUE;
+    }
+
+    $message = sprintf('Module "%s" is not installed.', $module);
+    throw new \Exception($message);
+  }
 }

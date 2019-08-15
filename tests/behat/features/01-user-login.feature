@@ -1,4 +1,4 @@
-@api @demo
+@api @demo @user
 Feature: Homepage.
   As a user of Umami,
   I want to be able to log into the site
