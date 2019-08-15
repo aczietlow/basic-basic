@@ -72,6 +72,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
       throw new \Exception("Selector isn't valid");
     }
   }
+
   /**
    * Setting custom size of the screen using width and height parameters
    *
@@ -81,6 +82,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   {
     $this->getSession()->resizeWindow($width, $height, 'current');
   }
+
   /**
    * Setting screen size to 1400x900 (desktop)
    *
@@ -90,6 +92,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   {
     $this->getSession()->resizeWindow(1400, 900, 'current');
   }
+
   /**
    * Setting screen size to 1024x900 (tablet landscape)
    *
@@ -99,6 +102,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   {
     $this->getSession()->resizeWindow(1024, 900, 'current');
   }
+
   /**
    * Setting screen size to 768x900 (tablet portrait)
    *
@@ -108,6 +112,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   {
     $this->getSession()->resizeWindow(768, 900, 'current');
   }
+
   /**
    * Setting screen size to 640x900 (mobile landscape)
    *
@@ -117,6 +122,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   {
     $this->getSession()->resizeWindow(640, 900, 'current');
   }
+
   /**
    * Setting screen size to 320x900 (mobile portrait)
    *
@@ -126,6 +132,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   {
     $this->getSession()->resizeWindow(320, 900, 'current');
   }
+
   /**
    * Check if the port is 443(https) or 80(http) / secure or not.
    *
@@ -138,6 +145,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
       throw new Exception('Page is not using SSL and is not Secure');
     }
   }
+
   /**
    * This will cause a 3 second delay
    *
@@ -146,6 +154,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   public function iWait() {
     sleep(3);
   }
+
   /**
    * Hover over an item using id|name|class
    *
@@ -159,6 +168,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
       throw new Exception('Element not found');
     }
   }
+
   /**
    * See if Element has style eg p.padL8 has style font-size= 12px
    *
@@ -175,6 +185,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
       throw new Exception('Element not found');
     }
   }
+
   /**
    * Look for a cookie
    *
@@ -187,6 +198,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
       throw new Exception('Cookie not found');
     }
   }
+
   /**
    * Setting the cookie with particular value
    *
@@ -195,6 +207,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   public function iSetCookieWithValue($cookie_name, $value) {
     $this->getSession()->setCookie($cookie_name, $value);
   }
+
   /**
    * Check if the cookie isn't presented
    *
@@ -205,6 +218,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
       throw new Exception('Cookie not found');
     }
   }
+
   /**
    * Destroy cookies. Resetting the session
    *
@@ -213,6 +227,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   public function iDestroyMyCookies() {
     $this->getSession()->reset();
   }
+
   /**
    * See if element is visible
    *
@@ -228,6 +243,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
       throw new Exception('Element not found');
     }
   }
+
   /**
    * See if element is not visible
    *
@@ -243,6 +259,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
       throw new Exception('Element not found');
     }
   }
+
   /**
    * Set a waiting time in seconds
    *
@@ -251,6 +268,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   public function iWaitForSeconds($arg1) {
     sleep($arg1);
   }
+
   /**
    * Switching to iFrame with Name(don't use id, title etc. ONLY NAME)
    *
@@ -259,6 +277,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   public function iSwitchToIframeNamed($arg1) {
     $this->getSession()->switchToIFrame($arg1);
   }
+
   /**
    * Switching to Window with Name(don't use id, title etc. ONLY NAME)
    *
@@ -268,6 +287,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   {
     $this->getSession()->switchToWindow($arg1);
   }
+
   /**
    * Switching to second window
    *
@@ -280,6 +300,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
       $this->getSession()->switchToWindow($windowNames[1]);
     }
   }
+
   /**
    * Click an element with an onclick handler
    *
@@ -296,6 +317,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
       throw new Exception('Element not found');
     }
   }
+
   /**
    * Y would be the way to up and down the page. A good default for X is 0
    *
@@ -312,6 +334,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
       throw new \Exception("ScrollIntoView failed");
     }
   }
+
   /**
    * Check existence of JavaScript variable on loaded page.
    *
@@ -328,6 +351,7 @@ EOT;
       throw new Exception('JavaScript variable doesn\'t exists or undefined.');
     }
   }
+
   /**
    * Check NON existence of JavaScript variable on loaded page.
    *
@@ -344,6 +368,7 @@ EOT;
       throw new Exception('JavaScript variable match.');
     }
   }
+
   /**
    * @Then /^I should see "([^"]*)" in the "([^"]*)" Js variable$/
    */
@@ -361,6 +386,7 @@ EOT;
       throw new Exception('JavaScript variable value doesn\'t match.');
     }
   }
+
   /**
    * Scrolling to the particular element(arg1 - Nav menu selector, arg2 - element's selector to scroll to)
    *
@@ -379,6 +405,7 @@ JS;
       throw new \Exception("ScrollIntoElement failed");
     }
   }
+
   /**
    * Clicking the element using selector (works only if element is visible)
    *
@@ -393,6 +420,7 @@ JS;
       throw new Exception('Element not found');
     }
   }
+
   /**
    * Verifying that element has particular class
    *
@@ -422,5 +450,67 @@ JS;
     if ($response != 'Ok') {
       throw new Exception($response);
     }
+  }
+
+  /**
+   * @When I fill in the :arg1 field with :arg2
+   */
+  public function iFillInTheFieldWith($name, $value)
+  {
+    $selector = $this->getFieldSelector($name);
+    $field = $this->fixStepArgument($selector);
+    $value = $this->fixStepArgument($value);
+    $this->getSession()->getPage()->fillField($field, $value);
+  }
+  /**
+   * @Given I should not see the :name field
+   */
+  public function iShouldNotSeeTheField($name)
+  {
+    $selector = $this->getFieldSelector($name);
+    $field = $this->fixStepArgument($selector);
+    $element = $this->getSession()->getPage()->findField($field);
+    if ($element) {
+      throw new ExpectationException(sprintf("The field '%s' was present on the page %s and was not supposed to be", $element, $this->getSession()->getCurrentUrl()), $this->getSession());
+    }
+  }
+
+  /**
+   * Returns selector for specified field/
+   *
+   * @param string $field
+   *
+   * @return string
+   */
+  protected function getFieldSelector($field) {
+    $selector = $field;
+
+    switch ($field) {
+      case 'email address':
+        $selector = 'mail';
+        break;
+
+      case 'subject':
+        $selector = 'subject[0][value]';
+        break;
+
+      case 'message':
+        $selector = 'message[0][value]';
+        break;
+    }
+
+    return $selector;
+  }
+
+  /**
+   * Returns fixed step argument (with \\" replaced back to ")
+   *
+   * @param string $argument
+   *
+   * @return string
+   */
+  protected function fixStepArgument($argument)
+  {
+    return str_replace('\\"', '"', $argument);
   }
 }

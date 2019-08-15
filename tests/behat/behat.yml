@@ -12,9 +12,9 @@ default:
               screenshot_dir: "%paths.base%/screenshots"
 
     # The twig formatter.
-  formatters:
-    html:
-      output_path: "%paths.base%/html_report"
+#  formatters:
+#    html:
+#      output_path: "%paths.base%/html_report"
   extensions:
     Behat\MinkExtension:
       base_url: "http://web"
