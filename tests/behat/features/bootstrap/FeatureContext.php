@@ -520,11 +520,10 @@ JS;
 
   /**
    * Asserts that a given module exists and is enabled.
-   *
+   * @Given the :module module is installed
    */
   public function assertModuleExists($module)
   {
-    // @Given the :module module is installed
     $moduleHandler = \Drupal::service('module_handler');
     if ($moduleHandler->moduleExists($module)){
       return TRUE;

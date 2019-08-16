@@ -22,3 +22,4 @@ Feature: Contact form
     And I fill in the "message" field with "Lorem Ipsum"
     And I press "Send message"
     Then I should see the text "Your message has been sent."
+    Then I s
